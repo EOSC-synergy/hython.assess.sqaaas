@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/interTwin-eu/hython:
+      branch: main
+      repo: https://github.com/interTwin-eu/hython
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/interTwin-eu/hython git:
+        commands:
+        - /usr/bin/env sh .sqa/script.snoopy-ecru-camel.sh
+        container: qc.acc_flimsy-pink-boar
+  QC.Doc:
+    repos:
+      github.com/interTwin-eu/hython find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.grumpy-maroon-spitz.sh
+        container: qc.doc_cozy-pear-whale
+      github.com/interTwin-eu/hython git:
+        commands:
+        - /usr/bin/env sh .sqa/script.bluesy-periwinkle-lion.sh
+        container: qc.doc_crabby-saffron-moth
+  QC.Lic:
+    repos:
+      github.com/interTwin-eu/hython licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.sleepy-alizarin-sheep.sh
+        container: qc.lic_chummy-copper-baboon
+  QC.Ver:
+    repos:
+      github.com/interTwin-eu/hython get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.gimpy-cinnamon-wasp.sh
+        container: qc.ver_cheeky-emerald-whippet
+timeout: 5400
