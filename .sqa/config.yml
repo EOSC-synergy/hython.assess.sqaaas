@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/interTwin-eu/hython:
       branch: main
@@ -15,28 +15,54 @@ sqa_criteria:
     repos:
       github.com/interTwin-eu/hython git:
         commands:
-        - /usr/bin/env sh .sqa/script.snoopy-ecru-camel.sh
-        container: qc.acc_flimsy-pink-boar
+        - /usr/bin/env sh .sqa/script.surly-aquamarine-chamois.sh
+        container: qc.acc_tasty-platinum-audemer
   QC.Doc:
     repos:
       github.com/interTwin-eu/hython find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.grumpy-maroon-spitz.sh
-        container: qc.doc_cozy-pear-whale
+        - /usr/bin/env sh .sqa/script.scanty-cobalt-seahorse.sh
+        container: qc.doc_pasty-cinnabar-neanderthal
       github.com/interTwin-eu/hython git:
         commands:
-        - /usr/bin/env sh .sqa/script.bluesy-periwinkle-lion.sh
-        container: qc.doc_crabby-saffron-moth
+        - /usr/bin/env sh .sqa/script.scanty-lavender-stoat.sh
+        container: qc.doc_gamy-ivory-swan
+      github.com/interTwin-eu/hython markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.shabby-sepia-moth.sh
+        container: qc.doc_leaky-copper-gibbon
   QC.Lic:
     repos:
       github.com/interTwin-eu/hython licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.sleepy-alizarin-sheep.sh
-        container: qc.lic_chummy-copper-baboon
+        - /usr/bin/env sh .sqa/script.freaky-indigo-orangutan.sh
+        container: qc.lic_beady-teal-bandicoot
+  QC.Sec:
+    repos:
+      github.com/interTwin-eu/hython bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.flaky-zucchini-panda.sh
+        container: qc.sec_droopy-lime-dolphin
+  QC.Sty:
+    repos:
+      github.com/interTwin-eu/hython flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.cloudy-zucchini-mau.sh
+        container: qc.sty_surly-saffron-falcon
+      github.com/interTwin-eu/hython jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.homely-cream-monkey.sh
+        container: qc.sty_chewy-purple-hyena
+  QC.Uni:
+    repos:
+      github.com/interTwin-eu/hython pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.shabby-green-zebra.sh
+        container: qc.uni_lousy-olivine-booby
   QC.Ver:
     repos:
       github.com/interTwin-eu/hython get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.gimpy-cinnamon-wasp.sh
-        container: qc.ver_cheeky-emerald-whippet
+        - /usr/bin/env sh .sqa/script.homely-rose-zorse.sh
+        container: qc.ver_crabby-chocolate-butterfly
 timeout: 5400

@@ -5,5 +5,5 @@
 
 (
 cd github.com/interTwin-eu/hython &&
-    git rev-parse --is-inside-work-tree
+    bandit -f json --quiet  --confidence-level high --severity-level high --recursive  .
 )

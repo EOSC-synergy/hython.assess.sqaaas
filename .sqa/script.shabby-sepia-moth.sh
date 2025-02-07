@@ -5,5 +5,5 @@
 
 (
 cd github.com/interTwin-eu/hython &&
-    licensee detect . --confidence 60 --json
+    mdl --json  .
 )
